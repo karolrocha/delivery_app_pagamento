@@ -1,6 +1,7 @@
 # "Cadastro e manutenção de métodos de pagamento (inserir, remover, atualizar);
 # Cadastro e manutenção de promoções (inserir, remover, atualizar);
 # Disparo de emails para usuários com comprovante de pedido;"
+# Ajuste questão 8
 
 Feature: : Aplicar cupom de desconto válido
 Dado que existe um pedido com ID “PEDIDO123” e valor total de “100,00”
