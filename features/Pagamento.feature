@@ -3,6 +3,7 @@
 # Disparo de emails para usuários com comprovante de pedido;"
 # commit 1 na main questão 13
 # Commit 1 dev questão 13
+# Commit 2 dev questão 13
 
 Feature: : Aplicar cupom de desconto válido
 Dado que existe um pedido com ID “PEDIDO123” e valor total de “100,00”
@@ -22,6 +23,13 @@ Então o cliente recebe uma mensagem de erro indicando que o cupom é inválido
 Feature: Realizar estorno de saldo ao cancelar pedido
 Dado que existe um pedido com ID “PEDIDO123” e valor total de “100,00”
 E o pedido está com status “pago”
-Quando o cliente solicita cancelamento do pedido antes do restaurante aceitar
+Quando o cliente solicita cancelamento do pedido "antes" do restaurante aceitar
 Então o status do pedido deve ser atualizado para “Cancelado”
 E o valor “100,00” do pedido deve estar disponível no saldo do cliente no sistema
+
+Feature: Realizar estorno de saldo ao cancelar pedido
+Dado que existe um pedido com ID “PEDIDO123” e valor total de “100,00”
+E o pedido está com status “pago”
+Quando o cliente solicita cancelamento do pedido "depois" do restaurante aceitar
+Então o status do pedido deve permanecer como “Pago”
+E o cliente recebe uma mensagem de erro indicando que o pedido não pode ser cancelado
