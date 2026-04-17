@@ -2,6 +2,7 @@
 # Cadastro e manutenção de promoções (inserir, remover, atualizar);
 # Disparo de emails para usuários com comprovante de pedido;"
 # commit 1 na main questão 13
+# Commit 1 dev questão 13
 
 Feature: : Aplicar cupom de desconto válido
 Dado que existe um pedido com ID “PEDIDO123” e valor total de “100,00”
