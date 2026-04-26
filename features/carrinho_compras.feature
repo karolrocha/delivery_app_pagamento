@@ -11,3 +11,4 @@ Cenário de Serviço: Adição bem-sucedida de item com customizações ao carri
     When o serviço recebe uma requisição para adicionar ao carrinho:
     Then o carrinho do usuário "João Silva" passa a conter o item "X-Burguer" com o adicional "Bacon Extra"
     And o subtotal do carrinho passa a ser "R$ 32,00"
+    And o sistema exibe a mensagem "Item adicionado ao carrinho com sucesso"
