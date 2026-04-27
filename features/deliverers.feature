@@ -46,3 +46,18 @@ Feature: Gestão de entregadores
         When a reatribuicao for solicitada para a ordem por motivo "refused"
         Then a nova atribuicao deve escolher outro entregador disponivel
         And a ordem deve continuar em "IN_DELIVERY"
+
+    Scenario: reatribuir pedido apos falha
+        Given uma ordem em entrega na regiao "Zona Sul" atribuida ao entregador "Ana"
+        And um outro entregador disponivel na regiao "Zona Sul"
+        When a reatribuicao for solicitada para a ordem por motivo "failed_delivery"
+        Then a nova atribuicao deve escolher outro entregador disponivel
+        And a ordem deve continuar em "IN_DELIVERY"
+
+    Scenario: reatribuir pedido apos cancelamento
+        Given uma ordem em entrega na regiao "Zona Sul" atribuida ao entregador "Ana"
+        And um outro entregador disponivel na regiao "Zona Sul"
+        When a reatribuicao for solicitada para a ordem por motivo "cancelled"
+        Then a nova atribuicao deve escolher outro entregador disponivel
+        And a ordem deve continuar em "IN_DELIVERY"
+        And o entregador "Ana" deve ser marcado como "AVAILABLE".
